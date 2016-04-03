@@ -20,7 +20,8 @@
         "node-red-nodes-random":"0.x",
         "node-red-nodes-smooth":"0.x",
         "node-red-contrib-web-worldmap":"0.x",
-        "node-red-contrib-ui":"*"
+        "node-red-contrib-ui":"*",
+        "node-red-contrib-admin":"*"
     },
     "engines": {
         "node": "4.x"
