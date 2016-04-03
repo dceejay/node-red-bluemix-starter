@@ -17,7 +17,10 @@
         "node-red-contrib-bluemix-hdfs":"0.x",
         "node-red-nodes-cf-sqldb-dashdb":"0.x",
         "node-red-nodes-rbe":"0.x",
-        "node-red-contrib-web-worldmap":"0.x"
+        "node-red-nodes-random":"0.x",
+        "node-red-nodes-smooth":"0.x",
+        "node-red-contrib-web-worldmap":"0.x",
+        "node-red-contrib-ui":"*"
     },
     "engines": {
         "node": "4.x"
