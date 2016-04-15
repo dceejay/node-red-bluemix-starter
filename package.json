@@ -20,7 +20,7 @@
         "node-red-node-random":"0.x",
         "node-red-node-smooth":"0.x",
         "node-red-contrib-web-worldmap":"0.x",
-        "node-red-contrib-ui":"jdp1g09/node-red-contrib-ui",
+        "node-red-contrib-ui":"jdp1g09/node-red-contrib-ui#convergence",
         "node-red-contrib-admin":"*"
     },
     "engines": {
