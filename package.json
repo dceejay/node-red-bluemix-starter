@@ -1,6 +1,6 @@
 {
     "name"         : "node-red-bluemix-starter",
-    "version"      : "0.4.25",
+    "version"      : "0.4.26",
     "dependencies": {
         "when": "~3.x",
         "nano": "~5.11.0",
@@ -20,7 +20,7 @@
         "node-red-node-random":"0.x",
         "node-red-node-smooth":"0.x",
         "node-red-contrib-web-worldmap":"0.x",
-        "node-red-contrib-ui":"jdp1g09/node-red-contrib-ui#convergence",
+        "node-red-contrib-ui":"node-red/node-red-dashboard",
         "node-red-contrib-admin":"*"
     },
     "engines": {
