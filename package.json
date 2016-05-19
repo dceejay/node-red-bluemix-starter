@@ -19,7 +19,7 @@
         "node-red-node-rbe":"0.x",
         "node-red-node-random":"0.x",
         "node-red-node-smooth":"0.x",
-        "node-red-contrib-web-worldmap":"0.x",
+        "node-red-contrib-web-worldmap":"1.x",
         "node-red-contrib-ui":"node-red/node-red-dashboard",
         "node-red-contrib-admin":"*"
     },
