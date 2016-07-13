@@ -21,7 +21,7 @@
         "node-red-node-smooth":"0.x",
         "node-red-contrib-web-worldmap":"1.x",
         "node-red-node-geofence":"*",
-        "node-red-contrib-ui":"node-red/node-red-dashboard#0.14.0",
+        "node-red-dashboard":"node-red/node-red-dashboard",
         "node-red-contrib-admin":"*"
     },
     "engines": {
