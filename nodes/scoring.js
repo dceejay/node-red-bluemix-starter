@@ -17,7 +17,7 @@
 module.exports = function(RED) {
     var cfenv = require('cfenv');
     var services = cfenv.getAppEnv().services;
-    var key;
+    var bkey;
     var url = 'https://palblyp.pmservice.ibmcloud.com/pm/v1/';
     var service;
     for (var i in services) {
@@ -28,7 +28,7 @@ module.exports = function(RED) {
 
     if (service) {
         url = service.credentials.url;
-        key = service.credentials.access_key;
+        bkey = service.credentials.access_key;
     }
 
     RED.httpAdmin.get('/spss/vcap', function(req, res) {
@@ -38,10 +38,10 @@ module.exports = function(RED) {
     function SpssNode(config) {
         RED.nodes.createNode(this,config);
         var cid = config.cid;
-        key = key || this.credentials.key;
         var node = this;
 
         this.on('input', function(msg) {
+            var key = bkey || this.credentials.key;
             if (!cid || !key) {
                 var message = 'Missing Predictive Analytics service credentials';
                 node.error(message, msg);
@@ -63,7 +63,13 @@ module.exports = function(RED) {
                     node.error('Predictive Analytics service call failed due to non-200 HTTP response to API call, '+response.statusCode, msg);
                 } else {
                     msg.payload = JSON.parse(body);
-                    node.send(msg);
+                    if (msg.payload.hasOwnProperty("flag") && (msg.payload.flag === false)) {
+                        var m = msg.payload.message.split(":")[0];
+                        node.error(m,msg.payload);
+                    }
+                    else {
+                        node.send(msg);
+                    }
                 }
             });
         });
