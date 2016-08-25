@@ -38,6 +38,7 @@ module.exports = function(RED) {
     function SpssNode(config) {
         RED.nodes.createNode(this,config);
         var cid = config.cid;
+        key = key || this.credentials.key;
         var node = this;
 
         this.on('input', function(msg) {
@@ -68,5 +69,9 @@ module.exports = function(RED) {
         });
     }
 
-    RED.nodes.registerType("predictive_analytics",SpssNode);
+    RED.nodes.registerType("predictive_analytics",SpssNode, {
+        credentials: {
+            key: {type:"password"}
+        }
+    });
 };
