@@ -31,7 +31,7 @@ module.exports = function(RED) {
         bkey = service.credentials.access_key;
     }
 
-    RED.httpAdmin.get('/spss/vcap', function(req, res) {
+    RED.httpAdmin.get('/predictive_analytics/vcap', function(req, res) {
         res.json(service ? {bound_service: true} : null);
     });
 

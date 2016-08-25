@@ -36,7 +36,8 @@
 </script>
 
 <script type="text/x-red" data-help-name="predictive_analytics">
-    <p>The Predictive Analytics service allows you score an input set of parameters using an SPSS model.</p>
+    <p>The Predictive Analytics node allows you score an input set of parameters using an SPSS model running
+    on a <a href="http://bluemix.net" target="_new">Bluemix</a> Predictive Analytics Service.</p>
     <p>You must pass in a <code>msg.payload</code> object <i>as required</i> by the model... so you must
     know what the model looks like. Typically it would have properties similar to :</p>
     <pre>{
@@ -44,8 +45,8 @@
     "header":["X","Y","Z"],
     "data":[[4,2,1]]
 }</pre>
-    <p>The <code>data</code> may be an array of multiple inputs, and they will all be scored.</p>
-    <p>The results will be returned as an object formatted by the model, as <code>msg.payload</code>.</p>
+    <p>The <code>data</code> may be an array of multiple input arrays, and each element will be scored.</p>
+    <p>The results will be returned as a <code>msg.payload</code> object formatted as per the model</p>
     <p>For more information about the Predictive Analytics service, read the
     <a href="https://www.ng.bluemix.net/docs/services/PredictiveModeling/index.html" target="_new">documentation</a>.</p>
 </script>
@@ -73,7 +74,7 @@
                 return this.name ? "node_label_italic" : "";
             },
             oneditprepare: function() {
-                $.getJSON('spss/vcap/')
+                $.getJSON('predictive_analytics/vcap/')
                     .done(function (service) {
                         $('.credentials').toggle(!service);
                     })
