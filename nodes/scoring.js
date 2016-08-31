@@ -18,7 +18,7 @@ module.exports = function(RED) {
     var cfenv = require('cfenv');
     var services = cfenv.getAppEnv().services;
     var bkey;
-    var url = 'https://palblyp.pmservice.ibmcloud.com/pm/v1/';
+    var url = 'https://palblyp.pmservice.ibmcloud.com/pm/v1';
     var service;
     for (var i in services) {
         if (i.match(/^(pm-20)/i)) {
@@ -33,6 +33,35 @@ module.exports = function(RED) {
 
     RED.httpAdmin.get('/predictive_analytics/vcap', function(req, res) {
         res.json(service ? {bound_service: true} : null);
+    });
+
+    RED.httpAdmin.get('/predictive_analytics/models', function(req, res) {
+        var list = [];
+        var lkey = bkey;
+        if (req.query.hasOwnProperty("k")) { lkey = req.query.k; }
+        if (req.query.hasOwnProperty("id")) {
+            lkey = RED.nodes.getCredentials(req.query.id).key;
+        }
+        if (lkey) {
+            var u = url + '/model?accesskey="'+lkey+'"';
+            var request = require('request');
+            request(u, function (error, response, body) {
+                if (!error && response.statusCode === 200) {
+                    body = JSON.parse(body);
+                    var ids;
+                    if (body.hasOwnProperty("flag") && (body.flag === false)) {
+                        ids = [body.message];
+                    } else {
+                        ids = body.map(function(model) { return model.id; });
+                    }
+                    res.json(ids);
+                }
+                else { res.json([]); }
+            });
+        }
+        else {
+            res.json(list);
+        }
     });
 
     function SpssNode(config) {

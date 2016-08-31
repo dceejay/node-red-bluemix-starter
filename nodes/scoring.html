@@ -21,13 +21,14 @@
             <i class="fa fa-question-circle"></i><b> Please wait: </b> Checking for bound service credentials...
         </div>
     </div>
-    <div class="form-row">
-        <label for="node-input-cid"><i class="fa fa-question"></i> Context ID</label>
-        <input type="text" id="node-input-cid" placeholder="context ID for model scoring path">
-    </div>
     <div class="form-row credentials" style="display: none;">
         <label for="node-input-key"><i class="fa fa-key"></i> API Key</label>
         <input type="password" id="node-input-key" placeholder="API key">
+    </div>
+    <div class="form-row">
+        <label for="node-input-cid"><i class="fa fa-question"></i> Context ID</label>
+        <input type="text" id="node-input-cid" placeholder="Please hit search" style="width:62%">
+        <a id="node-lookup-key" class="btn"><i class="fa fa-search"></i></a>
     </div>
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
@@ -74,15 +75,50 @@
                 return this.name ? "node_label_italic" : "";
             },
             oneditprepare: function() {
+                var bm = false;
+                var myId = this.id;
+
                 $.getJSON('predictive_analytics/vcap/')
                     .done(function (service) {
                         $('.credentials').toggle(!service);
+                        bm = true;
                     })
                     .fail(function () {
                         $('.credentials').show();
+                        if ($("#node-input-key").val().length === 0) {
+                            $("#node-input-cid").val("Please enter API key then hit search");
+                        }
                     }).always(function () {
                         $('#credentials-check').hide();
-                    })
+                    });
+
+                try {
+                    $("#node-input-cid").autocomplete( "destroy" );
+                } catch(err) {
+                }
+                $("#node-lookup-key").click(function() {
+                    var lkey = $("#node-input-key").val();
+                    if (bm || lkey.length !== 0) {
+                        var u = 'predictive_analytics/models/';
+                        if (!bm) {
+                            if (lkey !== "__PWRD__") { u += "?k="+lkey; }
+                            else { u += "?id="+myId; }
+                        }
+                        $.getJSON(u)
+                            .done(function (list) {
+                                $("#node-input-cid").autocomplete({
+                                    source:list,
+                                    minLength:0,
+                                    close: function( event, ui ) {
+                                        $("#node-input-cid").autocomplete( "destroy" );
+                                    }
+                                }).autocomplete("search","");
+                            })
+                            .fail(function (err) {
+                                $("#node-input-cid").val("fetch failed - enter manually");
+                            });
+                    }
+                });
             }
         });
     })();
