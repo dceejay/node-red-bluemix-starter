@@ -24,7 +24,8 @@
         "node-red-dashboard":"node-red/node-red-dashboard",
         "node-red-contrib-admin":"*",
         "node-red-contrib-slacker":"*",
-        "node-red-node-base64": "*"
+        "node-red-node-base64": "*",
+        "node-red-contrib-play-audio": "*"
     },
     "engines": {
         "node": "4.x"
