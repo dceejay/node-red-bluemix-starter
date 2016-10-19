@@ -12,12 +12,20 @@
         "node-red-bluemix-nodes":"1.x",
         "node-red-node-openwhisk":"0.x",
         "node-red-node-cf-cloudant":"0.x",
-
         "node-red-node-random":"0.x",
         "node-red-node-smooth":"0.x",
         "node-red-dashboard":"node-red/node-red-dashboard",
         "node-red-node-base64": "*",
-        "node-red-contrib-play-audio": "*"
+        "node-red-contrib-play-audio": "*",
+        
+        "node-red-node-watson":"0.x",
+        "node-red-contrib-scx-ibmiotapp":"0.x",
+        "node-red-contrib-ibmpush":"0.x",
+        "node-red-contrib-bluemix-hdfs":"0.x",
+        "node-red-nodes-cf-sqldb-dashdb":"0.x",
+        "node-red-contrib-web-worldmap":"1.x",
+        "node-red-node-geofence":"*",
+        "node-red-contrib-slacker":"*",
     },
     "scripts": {
         "start": "node --max-old-space-size=384 node_modules/node-red/red.js --settings ./bluemix-settings.js -v"
