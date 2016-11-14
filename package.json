@@ -19,10 +19,10 @@
         "node-red-contrib-play-audio": "*",
 
         "node-red-node-watson":"*",
-        "node-red-contrib-scx-ibmiotapp":"0.x",
         "node-red-contrib-ibmpush":"0.x",
         "node-red-contrib-bluemix-hdfs":"0.x",
         "node-red-nodes-cf-sqldb-dashdb":"0.x",
+        "node-red-contrib-scx-ibmiotapp":"0.x",
         "node-red-contrib-web-worldmap":"*",
         "node-red-node-geofence":"*",
         "node-red-contrib-slacker":"*"
