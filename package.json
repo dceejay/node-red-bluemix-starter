@@ -5,7 +5,6 @@
         "when": "3.x",
         "nano": "5.x",
         "cfenv":"1.x",
-        "request":"~2.74.0",
         "node-red":"*",
         "node-red-bluemix-nodes":"1.x",
         "node-red-node-openwhisk":"0.x",
