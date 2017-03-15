@@ -3,23 +3,22 @@
     "version"      : "0.5.1",
     "dependencies": {
         "when": "3.x",
-        "nano": "6.x",
+        "nano": "5.x",
         "cfenv":"1.x",
         "request":"~2.79.0",
         "node-red":"*",
         "node-red-bluemix-nodes":"1.x",
         "node-red-node-openwhisk":"0.x",
         "node-red-node-cf-cloudant":"0.x",
+        "node-red-contrib-scx-ibmiotapp":"0.x",
+
         "node-red-node-random":"0.x",
         "node-red-node-smooth":"0.x",
         "node-red-dashboard":"node-red/node-red-dashboard",
-
-        "node-red-node-watson":"*",
-        "node-red-contrib-scx-ibmiotapp":"0.x",
         "node-red-contrib-web-worldmap":"*"
     },
     "scripts": {
-        "start": "node --max-old-space-size=128 node_modules/node-red/red.js --settings ./bluemix-settings.js -v"
+        "start": "node --max-old-space-size=256 node_modules/node-red/red.js --settings ./bluemix-settings.js -v"
     },
     "engines": {
         "node": "6.x"
