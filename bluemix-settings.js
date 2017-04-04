@@ -80,21 +80,9 @@ if (!couchService) {
     if (process.env.NODE_RED_STORAGE_NAME) {
         util.log(" - using NODE_RED_STORAGE_NAME environment variable: "+process.env.NODE_RED_STORAGE_NAME);
     }
-<<<<<<< HEAD
-    throw new Error("No cloudant service found");
-}
-settings.couchUrl = couchService.credentials.url;
-||||||| merged common ancestors
-    throw new Error("No cloudant service found");
-}    
-settings.couchUrl = couchService.credentials.url;
-
-
-=======
     //fall back to localfilesystem storage
 } else {
     util.log("Using Cloudant service: "+storageServiceName+" : "+settings.couchAppname);
     settings.storageModule = require("./couchstorage");
     settings.couchUrl = couchService.credentials.url;
 }
->>>>>>> upstream/master
