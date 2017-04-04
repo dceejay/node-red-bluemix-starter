@@ -17,7 +17,7 @@
         "node-red-node-random":"0.x",
         "node-red-node-smooth":"0.x",
         "node-red-dashboard":"*",
-        "node-red-contrib-we-worldmap":"*",
+        "node-red-contrib-web-worldmap":"*",
         "npm":"^3.10.10"
     },
     "scripts": {
