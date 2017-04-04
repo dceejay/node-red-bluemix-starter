@@ -22,8 +22,7 @@ var cfenv = require("cfenv");
 var appEnv = cfenv.getAppEnv();
 
 console.log("NODE IS AT",process.execPath);
-console.log("PATH WAS",process.env.PATH);
-process.env.PATH += ":/home/vcap/app/node_modules/npm/bin";
+process.env.PATH += ":./:/home/vcap/app/vendor/node/bin";
 console.log("PATH NOW",process.env.PATH);
 
 var settings = module.exports = {

@@ -17,8 +17,7 @@
         "node-red-node-random":"0.x",
         "node-red-node-smooth":"0.x",
         "node-red-dashboard":"*",
-        "node-red-contrib-web-worldmap":"*",
-        "npm":"^3.10.10"
+        "node-red-contrib-web-worldmap":"*"
     },
     "scripts": {
         "start": "node --max-old-space-size=384 index.js --settings ./bluemix-settings.js -v"
