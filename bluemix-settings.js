@@ -21,16 +21,12 @@ var util = require("util");
 var cfenv = require("cfenv");
 var appEnv = cfenv.getAppEnv();
 
-console.log("NODE IS AT",process.execPath);
-process.env.PATH += ":./:/home/vcap/app/vendor/node/bin";
-console.log("PATH NOW",process.env.PATH);
-
 var settings = module.exports = {
     uiPort: process.env.PORT || 1880,
     mqttReconnectTime: 15000,
     debugMaxLength: 1000,
 
-    userDir: path.join(__dirname,".node-red"),
+    userDir: path.join(__dirname,".node-red") || process.env.NODE_RED_HOME || ".",
 
     flowFile: "flows.json",
 
@@ -38,7 +34,7 @@ var settings = module.exports = {
     nodesDir: path.join(__dirname,"nodes"),
 
     // Blacklist the non-bluemix friendly nodes
-    nodesExcludes:['66-mongodb.js','35-arduino.js','36-rpi-gpio.js','25-serial.js','28-tail.js','50-file.js','31-tcpin.js','32-udp.js','23-watch.js'],
+    nodesExcludes:['66-mongodb.js','75-exec.js','35-arduino.js','36-rpi-gpio.js','25-serial.js','28-tail.js','50-file.js','31-tcpin.js','32-udp.js','23-watch.js'],
 
     // Enable module reinstalls on start-up; this ensures modules installed
     // post-deploy are restored after a restage
