@@ -1,7 +1,7 @@
 Node-RED Bluemix Starter Application
 ====================================
 
-### Node-RED in BlueMix
+### Node-RED in IBM Bluemix
 
 This repository is an example Node-RED application that can be deployed into
 Bluemix with only a couple clicks. Try it out for yourself right now by clicking:
@@ -18,6 +18,10 @@ It will automatically create an instance of the Cloudant service, call it
 `sample-node-red-cloudantNoSQLDB` and bind it to you app. This is where your
 Node-RED instance will store its data. If you deploy multiple instances of
 Node-RED from this repository, they will share the one Cloudant instance.
+
+
+When you first access the application, you'll be asked to set some security options
+to ensure your flow editor remains secure from unauthorised access.
 
 It includes a set of default flows that are automatically deployed the first time
 Node-RED runs.
