@@ -21,6 +21,11 @@ var util = require("util");
 var cfenv = require("cfenv");
 var appEnv = cfenv.getAppEnv();
 
+console.log("NODE IS AT",process.execPath);
+console.log("PATH WAS",process.env.PATH);
+process.env.PATH += ":/home/vcap/app/node_modules/npm/bin";
+console.log("PATH NOW",process.env.PATH);
+
 var settings = module.exports = {
     uiPort: process.env.PORT || 1880,
     mqttReconnectTime: 15000,
