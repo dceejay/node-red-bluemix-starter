@@ -10,14 +10,14 @@
         "body-parser":"1.x",
         "http-shutdown":"1.2.0",
         "node-red": "0.x",
+        "node-red-bluemix-nodes":"1.x",
         "node-red-node-openwhisk":"0.x",
         "node-red-node-cf-cloudant":"0.x",
         "node-red-contrib-scx-ibmiotapp":"0.x",
         "node-red-node-random":"0.x",
         "node-red-node-smooth":"0.x",
         "node-red-dashboard":"*",
-        "node-red-contrib-web-worldmap":"*",
-        "node-red-contrib-mqtt-broker":"*"
+        "node-red-contrib-web-worldmap":"*"
     },
     "scripts": {
         "start": "node --max-old-space-size=384 index.js --settings ./bluemix-settings.js -v"
