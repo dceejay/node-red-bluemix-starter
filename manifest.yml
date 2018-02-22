@@ -1,10 +1,10 @@
 applications:
 - memory: 512M
   services:
-  - sample-node-red-cloudantNoSQLDB
+  - sample-node-red-cloudantNoSQLDB2
   env:
-    NODE_RED_STORAGE_NAME: sample-node-red-cloudantNoSQLDB
+    NODE_RED_STORAGE_NAME: sample-node-red-cloudantNoSQLDB2
 declared-services:
-  sample-node-red-cloudantNoSQLDB:
+  sample-node-red-cloudantNoSQLDB2:
     label: cloudantNoSQLDB
     plan:  Lite
